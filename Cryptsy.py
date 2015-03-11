@@ -1,8 +1,8 @@
-import requests
+import requests         #compatible with python 3.4 now
 import time
 import hmac,hashlib
 import logging
-import urllib
+import urllib.parse     #was import urllib for 2.7
 
 logging.getLogger("requests").setLevel(logging.NOTSET)
 
@@ -12,7 +12,7 @@ class Cryptsy:
         self.PublicKey = PublicKey
         self.PrivateKey = PrivateKey
 
-    def _query(self, method, id=None, action=None, query={}, get_method="GET"):
+    def _query(self, method, id=None, action=None, query=[], get_method="GET"):     #changed from master query{}
 
         route = "/api/v2/" + method
         if(id != None):
@@ -21,11 +21,11 @@ class Cryptsy:
                 route = route + "/" + str(action)
 
         query.append(('nonce', time.time()))
-        queryStr = urllib.urlencode(query)
+        queryStr = urllib.parse.urlencode(query)        #python 3.4 only
         print queryStr
         link = 'https://' + self.domain + route
         sign = hmac.new(self.PrivateKey.encode('utf-8'),
-                        queryStr,
+                        queryStr.encode('utf-8'),
                         hashlib.sha512).hexdigest()
         headers = {'Sign': sign, 'Key': self.PublicKey.encode('utf-8')}
 
