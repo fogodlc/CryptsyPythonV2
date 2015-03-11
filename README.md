@@ -1,12 +1,12 @@
 CryptsyPythonV2
 ===============
 
-Python Library for Cryptsy's V2 API
+Python Library for Cryptsy's V2 API that is Python 3.4.2 compatible
 
 
 Requirements
 ============
-* Tested in Python 2.7
+* Source code Tested in Python 2.7, change to accomodate Python 3.4.
 * requests lib. (http://docs.python-requests.org/en/latest/)
 
 Examples
