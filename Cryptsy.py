@@ -25,7 +25,7 @@ class Cryptsy:
         print queryStr
         link = 'https://' + self.domain + route
         sign = hmac.new(self.PrivateKey.encode('utf-8'),
-                        queryStr.encode('utf-8'),
+                        queryStr.encode('utf-8'),       #added .encode('utf-8) to make source code functional
                         hashlib.sha512).hexdigest()
         headers = {'Sign': sign, 'Key': self.PublicKey.encode('utf-8')}
 
