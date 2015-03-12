@@ -11,7 +11,18 @@ class Cryptsy:
         self.domain = domain
         self.PublicKey = PublicKey
         self.PrivateKey = PrivateKey
-
+    
+    def _getkey(self, path):
+        """Load key and secret from file.
+              cryptsy.key        
+        Argument:
+        path -- path to file (string, no default)
+        
+        """
+        f = open(path, "r")
+        self.PublicKey = f.readline().strip()
+        self.PrivateKey = f.readline().strip()
+    
     def _query(self, method, id=None, action=None, query=[], get_method="GET"):     #changed from master query{}
 
         route = "/api/v2/" + method
