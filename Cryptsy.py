@@ -33,7 +33,6 @@ class Cryptsy:
 
         query.append(('nonce', time.time()))
         queryStr = urllib.parse.urlencode(query)        #python 3.4 only
-        print queryStr
         link = 'https://' + self.domain + route
         sign = hmac.new(self.PrivateKey.encode('utf-8'),
                         queryStr.encode('utf-8'),       #added .encode('utf-8) to make source code functional
