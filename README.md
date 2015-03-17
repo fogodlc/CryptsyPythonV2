@@ -37,6 +37,27 @@ pprint(currencies)
 ```
 
 
+Account Balances
+```python
+from Cryptsy import Cryptsy
+from pprint import pprint
+c = Cryptsy()
+c._getkey("cryptsy.key")
+balances = c.balances()
+pprint(balances)
+```
+
+
+Market Orderbook (Open/Pending Orders)
+```python
+from Cryptsy import Cryptsy
+from pprint import pprint
+c = Cryptsy()
+c._getkey("cryptsy.key")
+market_orderbook = c.market_orderbook(1)
+pprint(market_orderbook)
+
+
 Create Converter Quote with 2% fee.
 ```python
 from Cryptsy import Cryptsy
