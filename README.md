@@ -62,8 +62,7 @@ Create Converter Quote with 2% fee.
 ```python
 from Cryptsy import Cryptsy
 from pprint import pprint
-
-c = Cryptsy("", "")
+c = Cryptsy()
 c._getkey("cryptsy.key")
 quote = c.convert_create(3, 132, sendingamount=1, tradekey="", feepercent=2)
 pprint(quote)
